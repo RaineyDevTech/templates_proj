@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic import TemplateView
+import datetime
 
 class FilterView(TemplateView):
     template_name = 'practice/filters.html'
@@ -10,6 +11,11 @@ class FilterView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['company'] = 'Webucator'
         context['url'] = 'https://www.webucator.com'
+        context['moon_landing'] = datetime.datetime(
+            year=1969, month=7, day=21,
+            hour=2, minute=56, second=15,
+            tzinfo=datetime.timezone.utc
+        )
 
         return context
 
