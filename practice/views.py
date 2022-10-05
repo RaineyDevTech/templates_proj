@@ -1,6 +1,5 @@
-from django.shortcuts import render
+import datetime
 
-# Create your views here.
 from django.views.generic import TemplateView
 import datetime
 
@@ -19,10 +18,8 @@ class FilterView(TemplateView):
 
         return context
 
-
 class HomePageView(TemplateView):
     template_name = 'home.html'
-
 
 class TagView(TemplateView):
     template_name = 'practice/tags.html'
@@ -30,12 +27,10 @@ class TagView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['beatles'] = [
-        {'firstname': 'Paul', 'lastname': 'McCartney'},
-        {'firstname': 'John', 'lastname': 'Lennon'},
-        {'firstname': 'George', 'lastname': 'Harrison'},
-        {'firstname': 'Ringo', 'lastname': 'Starr'},
+            {'firstname': 'Paul', 'lastname': 'McCartney'},
+            {'firstname': 'John', 'lastname': 'Lennon'},
+            {'firstname': 'George', 'lastname': 'Harrison'},
+            {'firstname': 'Ringo', 'lastname': 'Starr'},
         ]
-    
+        
         return context
-
-

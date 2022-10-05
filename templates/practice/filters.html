@@ -1,7 +1,16 @@
 {% extends "_base.html" %} {% block title %}Filters{% endblock %} {% block main %}
 <h2>Filters</h2>
 <h3>Link</h3>
+<<<<<<< HEAD
 <a href="{{ url }}">{{ company }}</a> 
 
 {{ moon_landing }}
+=======
+<a href="{{ url }}">{{ company }}</a> {{ company|upper }}: {{ url|urlize }} <br>
+<ul>
+    <li>{{ moon_landing }}</li>
+    <li>{{ moon_landing|date }}</li>
+</ul>
+
+>>>>>>> b54d0f18a5e794cd2cf8fdd8049c1d677fda0d4a
 {% endblock %}
