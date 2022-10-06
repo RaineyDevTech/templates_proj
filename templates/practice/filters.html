@@ -1,10 +1,45 @@
-{% extends "_base.html" %} {% block title %}Filters{% endblock %} {% block main %}
+{% extends "_base.html" %} {% load common_filters %} {% load common_tags %} {% block title %}Filters{% endblock %} {% block main %}
 <h2>Filters</h2>
 <h3>Link</h3>
 <a href="{{ url }}">{{ company }}</a> {{ company|upper }}: {{ url|urlize }} <br>
 <ul>
     <li>{{ moon_landing }}</li>
-    <li>{{ moon_landing|date }}</li>
+    <li>{{ moon_landing|date }} </li>
+    <li>{{ moon_landing|timesince }}</li>
+    <li>{{ launch_date|timesince:moon_landing }}</li>
 </ul>
+
+{{ century22|timeuntil }}<br> {{ century22|timeuntil:moon_landing }}
+
+<ol>
+    {% for item, remaining in inventory.items %}
+    <li>{{ item }}: {{ remaining|default:"out of stock" }}</li>
+    {% endfor %}
+</ol>
+
+<ol>
+    {% for category, titles in classes.items %}
+    <li>
+        {{ category }}: {{ titles|length }} class{{ titles|pluralize:"es" }}
+    </li>
+    {% endfor %}
+</ol>
+
+{{ blurb|truncatewords_html:3|safe }}
+
+<ol>
+    {% for item, remaining in inventory.items %}
+    <li class="{{ remaining|yesno:'instock,outofstock' }}">
+        {{ item }}: {{ remaining }} remaining {{ remaining|yesno:',(time to place an order)' }}
+    </li>
+    {% endfor %}
+</ol>
+
+<p>{{ company|repeat:3 }}</p>
+<p>{{ 5|repeat:3 }}</p>
+
+<p>{{ user_blurb|clean }}</p>
+
+<p>{% repeat company 3 %}</p>
 
 {% endblock %}
