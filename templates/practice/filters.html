@@ -1,6 +1,11 @@
 {% extends "_base.html" %} {% load common_filters %} {% load common_tags %} {% block title %}Filters{% endblock %} {% block main %}
 <h2>Filters</h2>
 <h3>Link</h3>
+<<<<<<< HEAD
+<a href="{{ url }}">{{ company }}</a> 
+
+{{ moon_landing }}
+=======
 <a href="{{ url }}">{{ company }}</a> {{ company|upper }}: {{ url|urlize }} <br>
 <ul>
     <li>{{ moon_landing }}</li>
@@ -9,6 +14,7 @@
     <li>{{ launch_date|timesince:moon_landing }}</li>
 </ul>
 
+<<<<<<< HEAD
 {{ century22|timeuntil }}<br> {{ century22|timeuntil:moon_landing }}
 
 <ol>
@@ -42,4 +48,7 @@
 
 <p>{% repeat company 3 %}</p>
 
+=======
+>>>>>>> b54d0f18a5e794cd2cf8fdd8049c1d677fda0d4a
+>>>>>>> 09de708addbce2dad74e587455a3137be090002d
 {% endblock %}

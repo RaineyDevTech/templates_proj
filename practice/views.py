@@ -1,6 +1,7 @@
 import datetime
 
 from django.views.generic import TemplateView
+import datetime
 
 class FilterView(TemplateView):
     template_name = 'practice/filters.html'
